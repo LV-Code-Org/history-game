@@ -42,8 +42,8 @@ const TimelineComponent: React.FC = () => {
 
   useEffect(() => {
     async function searchImages(searchInput: string) {
-      const apiKey = "AIzaSyCyXmzYSJK6VxZAyGX84mZmO4-v_W3zzuo"; // Replace with your Google API key
-      const cx = "47864378b548d4381"; // Replace with your Custom Search Engine ID
+      const apiKey = "AIzaSyCyXmzYSJK6VxZAyGX84mZmO4-v_W3zzuo";
+      const cx = "47864378b548d4381";
 
       const url = `https://www.googleapis.com/customsearch/v1?q=${encodeURIComponent(
         searchInput
@@ -96,12 +96,19 @@ const TimelineComponent: React.FC = () => {
         </Fragment>
       ) : (
         <Fragment>
-          <div style={{marginTop: "10vh"}}>
+          <div style={{ marginTop: "10vh" }}>
             <strong>Final Score:</strong>
           </div>
           <div className="finalScore">{score}</div>
-          <div className="percentage">{score/(MAX_QUESTIONS*1000)*100}%</div>
-          <button className="playAgain" onClick={() => window.location.reload()}>Play Again</button>
+          <div className="percentage">
+            {(score / (MAX_QUESTIONS * 1000)) * 100}%
+          </div>
+          <button
+            className="playAgain"
+            onClick={() => window.location.reload()}
+          >
+            Play Again
+          </button>
         </Fragment>
       )}
     </div>
